@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'xadmin',
     'crispy_forms',
-    'gunicorn',
 ]
 
 MIDDLEWARE = [
