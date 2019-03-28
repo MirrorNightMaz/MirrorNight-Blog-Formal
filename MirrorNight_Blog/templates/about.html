@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+ <head>
+  <meta charset="UTF-8" />
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet" type="text/css" />
+  <link href="http://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet" type="text/css" />
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/animated-bg.css' %}" />
+  <title>About Me</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/web_logo.ico' %}" />
+  <script>
+      function MobileMsg()
+      {
+          var userAgentInfo = navigator.userAgent;
+          var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+          for (var v = 0; v < Agents.length; v++)
+          {
+              if (userAgentInfo.indexOf(Agents[v]) > 0)
+              {
+                  window.location.href="{% url 'blog:mobilemsg' %}";
+                  break;
+              }
+          }
+      }
+      MobileMsg()
+  </script>
+ </head>
+ <body>
+  <div id="large-header" class="large-header">
+   <canvas id="demo-canvas"></canvas>
+   {% for word in words %}<a href="{% url 'blog:index' %}" class="main-title">{{ word.about_words }}</a>{% endfor %}
+  </div>
+  <script src="{% static 'js/TweenLite.min.js' %}"></script>
+  <script src="{% static 'js/EasePack.min.js' %}"></script>
+  <script src="{% static 'js/demo-1.js' %}"></script>
+ </body>
+</html>

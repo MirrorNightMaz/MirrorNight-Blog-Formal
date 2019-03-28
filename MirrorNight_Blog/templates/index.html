@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+ <head>
+  <title>Home</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/web_logo.ico' %}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="" />
+  <link href="{% static 'css/bootstrap.min-zz.css' %}" rel="stylesheet" type="text/css" media="all" />
+  <link href="{% static 'css/style-zz.css' %}" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'css/style-dp.css' %}" type="text/css" media="all" />
+  <style>
+      .dw h3{
+          font-size: 100px;
+      }
+      .dw p{
+          font-size: 30px;
+      }
+  </style>
+  <script>
+      function MobileMsg()
+      {
+          var userAgentInfo = navigator.userAgent;
+          var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+          for (var v = 0; v < Agents.length; v++)
+          {
+              if (userAgentInfo.indexOf(Agents[v]) > 0)
+              {
+                  window.location.href="{% url 'blog:mobilemsg' %}";
+                  break;
+              }
+          }
+      }
+      MobileMsg()
+  </script>
+ </head>
+ <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+  <div class="navbar-wrapper">
+   <div class="container">
+    <nav class="navbar navbar-inverse navbar-static-top cl-effect-20">
+     <div class="container">
+      <div class="navbar-header">
+       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+       <a class="navbar-brand" href="{% url 'blog:welcome' %}">MirrorNight</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse navbar-right">
+       <ul class="nav navbar-nav">
+        <li><a href="{% url 'blog:index' %}"><span data-hover="主页">主页</span></a></li>
+        <li><a href="{% url 'blog:categories' %}"><span data-hover="分类">分类</span></a></li>
+        <li><a href="{% url 'blog:archives' %}"><span data-hover="归档">归档</span></a></li>
+        <li><a href="{% url 'blog:photoalbums' %}"><span data-hover="相册">相册</span></a></li>
+        <li><a href="{% url 'blog:about' %}"><span data-hover="关于">关于</span></a></li>
+        <li><a href="{% url 'blog:contact' %}"><span data-hover="联系">联系</span></a></li>
+        {% if request.user.is_authenticated %}
+            <li><a href="{% url 'user:logout' %}"><span data-hover="注销">注销</span></a></li>
+            <li><a href="{% url 'user:myself' %}"><span data-hover="个人">个人</span></a></li>
+        {% else %}
+            <li><a href="{% url 'user:login' %}"><span data-hover="登录">登录</span></a></li>
+        {% endif %}
+        <li><a href="{% url 'user:register' %}"><span data-hover="注册">注册</span></a></li>
+       </ul>
+      </div>
+     </div>
+    </nav>
+   </div>
+  </div>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+   <div class="carousel-inner" role="listbox">
+    {% for banner in banners %}
+        <div class="item {% ifequal banner banners.first %}active{% endifequal %}">
+            <img class="first-slide" src="{{ MEDIA_URL }}{{ banner.banner }}" alt="First slide" />
+        </div>
+    {% endfor %}
+   </div>
+   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+   <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+  </div>
+  <section class="our-events slideanim" id="events">
+   <h3 class="text-center slideanim">最新文章</h3>
+   <div class="container">
+    <div class="row">
+     {% for article in articles %}
+         <div class="col-lg-4 col-md-4">
+             <div class="event-info">
+                 <h4 class="text-center slideanim">{{ article.title }}</h4>
+                 <a href="{% url 'blog:detail' article.id %}" class="eve slideanim">{{ article.abstract }}</a>
+             </div>
+         </div>
+     {% endfor %}
+    </div>
+   </div>
+  </section>
+  <div class="agileinfodetails" id="agileinfodetails">
+   <div class="container">
+    {% for word in words %}
+        <div class="col-md-12 agileinfodetails-grid agileinfodetails-heading dw">
+            <h3>{{ word.declare_title }}</h3>
+        </div>
+        <div class="col-md-12 agileinfodetails-grid agileinfodetails-paragraph dw">
+            <p>{{ word.declare_words }}</p>
+        </div>
+        <div class="clearfix"></div>
+    {% endfor %}
+   </div>
+  </div>
+  <section class="footer">
+   <div class="copyright">
+    <p>Copyright &copy; 2019.MirrorNight All rights reserved.</p>
+    <br />
+    <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">皖ICP备18025934号</a>
+   </div>
+  </section>
+  <script src="{% static 'js/jquery.min-zz.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min-zz.js' %}"></script>
+ </body>
+</html>

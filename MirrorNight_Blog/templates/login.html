@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+{% load static %}
+<html class="ace-sidebar-on">
+ <head>
+  <style>
+	.aaa{
+		width: 300px;
+		position: absolute;
+		left: 50%;
+		margin: 0 0 0 -200px;
+	}
+	.bbb{
+		width: 300px;
+		position: absolute;
+		left: 50%;
+		margin: 70px 0 0 -390px;
+	}
+   .ccc{
+		width: 300px;
+		position: absolute;
+		left: 50%;
+		margin: 90px 0 0 -390px;
+	}
+    .captcha{
+        position: relative;
+        top: 50px;
+        left: 260px;
+    }
+    .ea{
+        position: relative;
+        top: 47px;
+        left: 350px;
+        font-size: 20px;
+        font-weight: bold;
+        color: red;
+    }
+    .eb{
+        position: relative;
+        top: 48px;
+        left: 350px;
+        font-size: 20px;
+        font-weight: bold;
+        color: red;
+    }
+    .ec{
+        position: relative;
+        top: 100px;
+        left: 350px;
+        font-size: 20px;
+        font-weight: bold;
+        color: red;
+    }
+  </style>
+  <title>Login</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/web_logo.ico' %}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="" />
+  <link href="{% static 'css/bootstrap.min-zz.css' %}" rel="stylesheet" type="text/css" media="all" />
+  <link href="{% static 'css/style-zzc.css' %}" rel="stylesheet" type="text/css" media="all" />
+  <link href="{% static 'css/styleaa.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/stylebb.css' %}" rel="stylesheet" />
+  <script type="text/javascript" src="{% static 'js/modernizr-3.3.1.min.js' %}"></script>
+  <script>
+      function MobileMsg()
+      {
+          var userAgentInfo = navigator.userAgent;
+          var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+          for (var v = 0; v < Agents.length; v++)
+          {
+              if (userAgentInfo.indexOf(Agents[v]) > 0)
+              {
+                  window.location.href="{% url 'blog:mobilemsg' %}";
+                  break;
+              }
+          }
+      }
+      MobileMsg()
+  </script>
+ </head>
+ <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+  <div class="ace-wrapper">
+   <header id="ace-header" class="ace-container-shift ace-logo-in ace-head-boxed ace-nav-right">
+    <div class="ace-head-inner">
+     <div class="ace-head-container ace-container">
+      <div class="ace-head-row">
+       <div id="ace-head-col3" class="ace-head-col text-right">
+        <button id="ace-sidebar-btn" class="btn btn-icon btn-light btn-shade"> <span class="ace-icon ace-icon-side-bar-icon"></span> </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </header>
+  </div>
+  <div id="ace-sidebar">
+   <button id="ace-sidebar-close" class="btn btn-icon btn-light btn-shade"> <span class="ace-icon ace-icon-close"></span> </button>
+   <div id="ace-sidebar-inner">
+    <article class="ace-card bg-primary">
+     <div class="ace-card-inner text-center">
+      {% if request.user.is_authenticated %}
+          <img class="avatar avatar-195" src="{{ MEDIA_URL }}{{ request.user.head_portrait }}" width="195" height="195" alt="" />
+          <h1>{{ request.user.username }}</h1>
+      {% else %}
+          <img class="avatar avatar-195" src="{% static 'img/logout.jpg' %}" width="195" height="195" alt="" />
+          <h1>请登录</h1>
+      {% endif %}
+     </div>
+    </article>
+    <section class="widget widget_categories">
+     <ul>
+      {% if request.user.is_authenticated %}
+          <li><a href="{% url 'user:myself' %}">个人</a></li>
+      {% endif %}
+      <li><a href="{% url 'blog:index' %}">主页</a></li>
+      <li><a href="{% url 'blog:categories' %}">分类</a></li>
+      <li><a href="{% url 'blog:archives' %}">归档</a></li>
+      <li><a href="{% url 'blog:photoalbums' %}">相册</a></li>
+      <li><a href="{% url 'blog:about' %}">关于</a></li>
+      <li><a href="{% url 'blog:contact' %}">联系</a></li>
+      {% if request.user.is_authenticated %}
+          <li><a href="{% url 'user:logout' %}">注销</a></li>
+      {% else %}
+          <li><a href="{% url 'user:login' %}">登录</a></li>
+      {% endif %}
+      <li><a href="{% url 'user:register' %}">注册</a></li>
+     </ul>
+    </section>
+   </div>
+  </div>
+  <section class="our-contacts slideanim" id="contact">
+   <h3 class="text-center slideanim">用户登录</h3>
+   <p class="text-center slideanim">{{ msg }}</p>
+   <div class="container">
+    <div class="row">
+     <div class="col-lg-12">
+      <form role="form" method="post" action="{% url 'user:login' %}" novalidate autocomplete="off">
+       <div class="row">
+        <div class="form-group col-lg-4  aaa slideanim">
+         {% if loginform.errors.username_or_email %}
+            <ul class="ea">
+                {% for error in loginform.errors.username_or_email %}
+                    <li><strong>{{ error|escape }}</strong></li>
+                {% endfor %}
+            </ul>
+         {% endif %}
+         {{ loginform.username_or_email }}
+        </div>
+        <div class="form-group col-lg-4 bbb slideanim">
+         {% if loginform.errors.password %}
+            <ul class="eb">
+                {% for error in loginform.errors.password %}
+                    <li><strong>{{ error|escape }}</strong></li>
+                {% endfor %}
+            </ul>
+         {% endif %}
+         {{ loginform.password }}
+        </div>
+        <div class="form-group col-lg-4 ccc slideanim">
+         {% if loginform.errors.captcha %}
+            <ul class="ec">
+                {% for error in loginform.errors.captcha %}
+                    <li><strong>{{ error|escape }}</strong></li>
+                {% endfor %}
+            </ul>
+         {% endif %}
+         {{ loginform.captcha }}
+        </div>
+        <div class="form-group col-lg-12 slideanim">
+         <button type="submit" class="btn-outline2">登录</button>
+         <br />
+         <br />
+         <br />
+         <br />
+         <a href="{% url 'user:forget' %}"> <button type="button" class="btn-outline2">忘记密码？</button> </a>
+        </div>
+       </div>
+       {% csrf_token %}
+      </form>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="footer">
+   <div class="copyright">
+    <p>Copyright &copy; 2019.MirrorNight All rights reserved.</p>
+    <br />
+    <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">皖ICP备18025934号</a>
+   </div>
+  </section>
+  <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/options.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+  <script>
+      $('.captcha').click(function () {
+      $.getJSON("/captcha/refresh/", function (result) {
+          $('.captcha').attr('src', result['image_url']);
+          $('#id_captcha_0').val(result['key'])
+      });
+      });
+  </script>
+ </body>
+</html>

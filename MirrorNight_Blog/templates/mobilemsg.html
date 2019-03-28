@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+ <head>
+  <title>Mobile Msg</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/web_logo.ico' %}" />
+  <style>
+      body{
+          background-color: dodgerblue;
+      }
+      .msg p{
+          font-size: 65px;
+          font-weight: bold;
+          color: white;
+          text-align: center;
+      }
+  </style>
+  <script>
+      function NotMobileMsg()
+      {
+          var userAgentInfo = navigator.userAgent;
+          var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+          for (var v = 0; v < Agents.length; v++)
+          {
+              if (userAgentInfo.indexOf(Agents[v]) > 0)
+                  break;
+              else
+                  window.location.href="{% url 'blog:index' %}";
+          }
+      }
+      NotMobileMsg()
+  </script>
+ </head>
+ <body>
+    <div align="center" class="msg">
+        <p>移动端UI暂未开发</p>
+        <p>请移步PC端访问</p>
+        <p>推荐使用Microsoft Edge浏览器</p>
+        <p>如有不便请见谅</p>
+        <div align="center"><img src="{% static 'img/achai2.gif' %}" width="400" height="400"></div>
+    </div>
+ </body>
+</html>

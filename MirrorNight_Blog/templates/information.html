@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>{{ title }}</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/web_logo.ico' %}" />
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+  <link href="http://fonts.googleapis.com/css?family=Nova+Flat" rel="stylesheet" type="text/css" />
+  <script>
+      function MobileMsg()
+      {
+          var userAgentInfo = navigator.userAgent;
+          var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+          for (var v = 0; v < Agents.length; v++)
+          {
+              if (userAgentInfo.indexOf(Agents[v]) > 0)
+              {
+                  window.location.href="{% url 'blog:mobilemsg' %}";
+                  break;
+              }
+          }
+      }
+      MobileMsg()
+  </script>
+ </head>
+ <body>
+  <div class="container">
+   <div class="row pad-top text-center">
+    <div class="col-md-6 col-md-offset-3 text-center">
+     <h2>{{ information }}</h2>
+    </div>
+   </div>
+   <div align="center"><img src="{% static 'img/achai4.gif' %}" width="400" height="400"></div>
+   <div class="row text-center">
+    <br> <br>
+    <div class="col-md-8 col-md-offset-2">
+     {% if type == 1 %}
+         <a href="{% url 'blog:index' %}" class="btn btn-primary">返回</a>
+     {% elif type == 2%}
+         <a href="{% url 'user:login' %}" class="btn btn-primary">返回</a>
+     {% else %}
+         <a href="{% url 'blog:comments' id %}" class="btn btn-primary">返回</a>
+     {% endif %}
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,350 @@
+h3 {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+}
+
+body{
+	background-color: #269abc;
+}
+
+/*-- Details --*/
+
+.agileinfodetails {
+	background-image: url("/media/appearance/declare_bg.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-attachment: fixed;
+	padding: 300px 0;
+}
+
+.agileinfodetails-heading h3 {
+	text-align: right;
+	width: 40%;
+	float: right;
+	font-size: 65px;
+	font-weight: 700;
+	color: #FFF;
+}
+
+.agileinfodetails-paragraph {
+	margin-top: 50px;
+}
+
+.agileinfodetails-paragraph p {
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 30px;
+	text-align: right;
+	float: right;
+	width: 56%;
+	color: #FFF;
+	text-transform: uppercase;
+	font-family: -webkit-body;
+}
+
+/*-- //Details --*/
+
+
+/*-- Responsive-Code --*/
+@media screen and (max-width: 1366px) {
+	.agileinfodetails {
+		padding: 225px 0;
+	}
+}
+
+@media screen and (max-width: 1080px) {
+	.agileinfodetails {
+		padding: 125px 0;
+	}
+	.agileinfodetails-heading h3 {
+		width: 50%;
+		font-size: 60px;
+	}
+	.agileinfodetails-paragraph p {
+		width: 70%;
+	}
+	.w3lsaboutaits, .wthreelocationsaits, .agilepackagesw3l, .w3portfolioaits, .agilecontactw3ls {
+		padding: 75px 0;
+	}
+	.wthreelocationsaits h3, .agilepackagesw3l h3, .w3portfolioaits h3, .agilecontactw3ls h3 {
+		margin-bottom: 35px;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.agileinfodetails-heading h3 {
+		width: 45%;
+		font-size: 55px;
+	}
+	.agileinfodetails-paragraph p {
+		width: 60%;
+		font-size: 16px;
+		margin-top: 25px;
+	}
+	.w3portfolioaits-item {
+		width: 33.3%;
+		float: left;
+	}
+}
+
+@media screen and (max-width: 966px) {
+	.agileinfodetails-paragraph p {
+		width: 62%;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.agileinfodetails-paragraph p {
+		width: 67%;
+	}
+}
+
+@media screen and (max-width: 853px) {
+	.agileinfodetails-heading h3 {
+		width: 47%;
+	}
+	.agileinfodetails-paragraph p {
+		width: 66%;
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.agileinfodetails-heading h3 {
+		width: 50%;
+	}
+	.agileinfodetails-paragraph p {
+		width: 71%;
+		line-height: 27px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.agileinfodetails-heading h3 {
+		width: 55%;
+	}
+	.agileinfodetails-paragraph p {
+		width: 75%;
+		line-height: 27px;
+	}
+	.w3lsaboutaits, .wthreelocationsaits, .agilepackagesw3l, .w3portfolioaits, .agilecontactw3ls {
+		padding: 50px 0;
+	}
+	.wthreelocationsaits h3, .agilepackagesw3l h3, .w3portfolioaits h3, .agilecontactw3ls h3 {
+		font-size: 35px;
+		margin-bottom: 35px;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	.agileinfodetails {
+		padding: 100px 0;
+	}
+	.agileinfodetails-heading h3 {
+		font-size: 50px;
+	}
+	.agileinfodetails-paragraph p {
+		font-size: 14px;
+		line-height: 25px;
+	}
+}
+
+@media screen and (max-width: 667px) {
+	.agileinfodetails-paragraph p {
+		width: 83%;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.agileinfodetails-heading h3 {
+		width: 60%;
+	}
+	.agileinfodetails-paragraph p {
+		width: 86%;
+	}
+	.agileinfodetails {
+		padding: 75px 0;
+	}
+	.wthreelocationsaits h3, .agilepackagesw3l h3, .w3portfolioaits h3, .agilecontactw3ls h3 {
+		font-size: 30px;
+		margin-bottom: 30px;
+	}
+}
+
+@media screen and (max-width: 603px) {
+	.agileinfodetails-heading h3 {
+		width: 62%;
+	}
+	.agileinfodetails-paragraph p {
+		width: 93%;
+	}
+}
+
+@media screen and (max-width: 568px) {
+	.agileinfodetails-heading h3 {
+		width: 60%;
+		font-size: 45px;
+	}
+	.agileinfodetails-paragraph p {
+		width: 89%;
+		font-size: 13px;
+		margin-top: 15px;
+	}
+	.w3lsaboutaits, .wthreelocationsaits, .agilepackagesw3l, .w3portfolioaits, .agilecontactw3ls {
+		padding: 35px 0;
+	}
+}
+
+@media screen and (max-width: 533px) {
+	.agileinfodetails-heading h3 {
+		width: 65%;
+	}
+	.agileinfodetails-paragraph p {
+		width: 95%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.agileinfodetails {
+		padding: 50px 0;
+	}
+	.agileinfodetails-heading h3 {
+		width: 70%;
+		font-size: 40px;
+	}
+	.agileinfodetails-paragraph p {
+		width: 100%;
+		font-size: 12px;
+	}
+	.w3portfolioaits-item {
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 414px) {
+	.agileinfodetails-heading h3 {
+		width: 80%;
+		font-size: 40px;
+	}
+}
+
+@media screen and (max-width: 384px) {
+	.agileinfodetails-grid {
+		padding: 0;
+	}
+	.agileinfodetails-heading h3 {
+		width: 85%;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.agileinfodetails-heading h3 {
+		font-size: 35px;
+	}
+	.w3portfolioaits-item {
+		width: 100%;
+	}
+}
+/*-- //Responsive-Code --*/
+
+/*-- Portfolio --*/
+
+.w3portfolioaits {
+	background-color: #269abc;
+	padding: 0 0;
+}
+
+.w3portfolioaits a{
+	text-decoration: none;
+}
+
+.w3portfolioaits-item {
+	padding: 0;
+}
+
+.grid figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	height: auto;
+	background: #000;
+	text-align: center;
+}
+
+.grid figure img {
+	position: relative;
+	display: block;
+	max-width: 100%;
+}
+
+.grid figure figcaption {
+	padding: 7em;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.grid figure figcaption::before, .grid figure figcaption::after {
+	pointer-events: none;
+}
+
+.grid figure figcaption, .grid figure figcaption > a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+figure.effect-apollo {
+	background: #000;
+}
+
+figure.effect-apollo img {
+	opacity: 0.95;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale3d(1.05,1.05,1);
+	transform: scale3d(1.05,1.05,1);
+}
+
+figure.effect-apollo figcaption::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255,255,255,0.5);
+	content: '';
+	-webkit-transition: -webkit-transform 0.6s;
+	transition: transform 0.6s;
+	-webkit-transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-100%,0);
+	transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-100%,0);
+}
+
+figure.effect-apollo:hover img {
+	opacity: 0.6;
+	-webkit-transform: scale3d(1,1,1);
+	transform: scale3d(1,1,1);
+}
+
+figure.effect-apollo:hover figcaption::before {
+	-webkit-transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,100%,0);
+	transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,100%,0);
+}
+
+/*-- //Portfolio --*/
+
+.wthreelocationsaits h3, .agilepackagesw3l h3, .w3portfolioaits h3, .agilecontactw3ls h3 {
+	font-size: 40px;
+	margin-bottom: 50px;
+	color: white;
+}

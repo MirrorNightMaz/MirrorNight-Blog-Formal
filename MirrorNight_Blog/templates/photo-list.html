@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+{% load static %}
+<html class="ace-sidebar-on">
+ <head>
+  <title>Photo Album</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/web_logo.ico' %}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="" />
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+  <link rel="stylesheet" href="{% static 'css/bootstrap-dp.css' %}" type="text/css" media="all" />
+  <link rel="stylesheet" href="{% static 'css/style-dp.css' %}" type="text/css" media="all" />
+  <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="{% static 'css/styleaa.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/stylebb.css' %}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/stylep.css' %}" />
+  <script type="text/javascript" src="{% static 'js/modernizr-3.3.1.min.js' %}"></script>
+  <script>
+      function MobileMsg()
+      {
+          var userAgentInfo = navigator.userAgent;
+          var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+          for (var v = 0; v < Agents.length; v++)
+          {
+              if (userAgentInfo.indexOf(Agents[v]) > 0)
+              {
+                  window.location.href="{% url 'blog:mobilemsg' %}";
+                  break;
+              }
+          }
+      }
+      MobileMsg()
+  </script>
+  <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        form {
+            position: relative;
+            width: 400px;
+            top: -45px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input, button {
+            border: none;
+            outline: none;
+        }
+
+        input {
+            width: 100%;
+            height: 42px;
+            padding-left: 13px;
+        }
+
+        button {
+            height: 42px;
+            width: 42px;
+            cursor: pointer;
+            position: absolute;
+        }
+
+        .bar1 input {
+            border: 2px solid #7BA7AB;
+            border-radius: 5px;
+            background: #F9F0DA;
+            color: #9E9C9C;
+        }
+        .bar1 button {
+            top: 0;
+            right: 0;
+            background: #7BA7AB;
+            border-radius: 0 5px 5px 0;
+        }
+        .bar1 button:before {
+            content: "\f002";
+            font-family: FontAwesome;
+            font-size: 16px;
+            color: #F9F0DA;
+        }
+        .diandian{
+            font-size: 35px;
+            font-weight: bold;
+            color: white;
+        }
+        .achai{
+            position: relative;
+            top: -80px;
+        }
+    </style>
+ </head>
+ <body>
+  <div class="ace-wrapper">
+   <header id="ace-header" class="ace-container-shift ace-logo-in ace-head-boxed ace-nav-right">
+    <div class="ace-head-inner">
+     <div class="ace-head-container ace-container">
+      <div class="ace-head-row">
+       <div id="ace-head-col3" class="ace-head-col text-right">
+        <button id="ace-sidebar-btn" class="btn btn-icon btn-light btn-shade"> <span class="ace-icon ace-icon-side-bar-icon"></span> </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </header>
+  </div>
+  <div id="ace-sidebar">
+   <button id="ace-sidebar-close" class="btn btn-icon btn-light btn-shade"> <span class="ace-icon ace-icon-close"></span> </button>
+   <div id="ace-sidebar-inner">
+    <article class="ace-card bg-primary">
+     <div class="ace-card-inner text-center">
+      {% if request.user.is_authenticated %}
+          <img class="avatar avatar-195" src="{{ MEDIA_URL }}{{ request.user.head_portrait }}" width="195" height="195" alt="" />
+          <h1>{{ request.user.username }}</h1>
+      {% else %}
+          <img class="avatar avatar-195" src="{% static 'img/logout.jpg' %}" width="195" height="195" alt="" />
+          <h1>请登录</h1>
+      {% endif %}
+     </div>
+    </article>
+    <section class="widget widget_categories">
+     <ul>
+      {% if request.user.is_authenticated %}
+          <li><a href="{% url 'user:myself' %}">个人</a></li>
+      {% endif %}
+      <li><a href="{% url 'blog:index' %}">主页</a></li>
+      <li><a href="{% url 'blog:categories' %}">分类</a></li>
+      <li><a href="{% url 'blog:archives' %}">归档</a></li>
+      <li><a href="{% url 'blog:photoalbums' %}">相册</a></li>
+      <li><a href="{% url 'blog:about' %}">关于</a></li>
+      <li><a href="{% url 'blog:contact' %}">联系</a></li>
+      {% if request.user.is_authenticated %}
+          <li><a href="{% url 'user:logout' %}">注销</a></li>
+      {% else %}
+          <li><a href="{% url 'user:login' %}">登录</a></li>
+      {% endif %}
+      <li><a href="{% url 'user:register' %}">注册</a></li>
+     </ul>
+    </section>
+   </div>
+  </div>
+  <div class="w3portfolioaits" id="w3portfolioaits">
+   <br />
+   <br />
+   <h3>我的相册</h3>
+   <div class="clearfix"></div>
+   <br />
+   <br />
+   <div id="container">
+    <div class="search bar1">
+     <form method="post" action="{% url 'blog:photoalbums' %}" novalidate autocomplete="off">
+      {{ searchform.key_words }}
+      <button type="submit"></button>
+      {% csrf_token %}
+     </form>
+    </div>
+   </div>
+   {% for photoalbum in photoalbums_page.object_list %}
+       <a href="{% url 'blog:photos' photoalbum.id %}"><h3>{{ photoalbum.title }}[{{ photoalbum.num }}张]</h3></a>
+   {% empty %}
+       <a href="#"><h3>{{ msg }}</h3></a>
+       <div class="achai" align="center"><img src="{% static 'img/achai5.gif' %}" width="400" height="400"></div>
+   {% endfor %}
+   <div class="clearfix"></div>
+  </div>
+  <div class="pageturn">
+   <ul class="pagelist">
+    {% if photoalbums_page.has_previous %}
+        <li class="long"><a href="?{{ photoalbums_page.previous_page_number.querystring }}">上一页</a></li>
+    {% endif %}
+
+    {% for skip_page_id in photoalbums_page.pages %}
+        {% if skip_page_id %}
+            {% ifequal skip_page_id photoalbums_page.number %}
+                <li class="active"><a href="#" class="page">{{ skip_page_id }}</a></li>
+            {% else %}
+                <li><a href="?{{ skip_page_id.querystring }}" class="page">{{ skip_page_id }}</a></li>
+            {% endifequal %}
+        {% else %}
+            <li class="diandian">···</li>
+        {% endif %}
+    {% endfor %}
+
+    {% if photoalbums_page.has_next %}
+        <li class="long"><a href="?{{ photoalbums_page.next_page_number.querystring }}">下一页</a></li>
+    {% endif %}
+   </ul>
+  </div>
+  <script type="text/javascript" src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/options.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+ </body>
+</html>

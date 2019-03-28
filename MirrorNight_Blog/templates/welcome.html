@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Welcome</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/web_logo.ico' %}" />
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet" />
+  <script>
+      function MobileMsg()
+      {
+          var userAgentInfo = navigator.userAgent;
+          var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+          for (var v = 0; v < Agents.length; v++)
+          {
+              if (userAgentInfo.indexOf(Agents[v]) > 0)
+              {
+                  window.location.href="{% url 'blog:mobilemsg' %}";
+                  break;
+              }
+          }
+      }
+      MobileMsg()
+  </script>
+ </head>
+ <body>
+  <header id="top" class="header">
+   <div class="text-vertical-center">
+    {% for word in words %}
+        <h1>{{ word.welcome_title }}</h1>
+        <h3>{{ word.welcome_words }}</h3>
+    {% endfor %}
+    <br />
+    <a href="{% url 'blog:index' %}" class="btn btn-dark btn-lg">Go Now</a>
+   </div>
+  </header>
+ </body>
+</html>

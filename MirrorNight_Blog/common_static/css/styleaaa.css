@@ -1,0 +1,249 @@
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    font-family: inherit;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    background: #000;
+    vertical-align: middle;
+    padding: 8px 25px;
+    display: inline-block;
+    border-radius: 35px;
+    border: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    box-shadow: transparent 0 0 0;
+    transition: all 500ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.btn:hover, .btn.hover {
+    box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn .ace-icon {
+    font-size: 1.2em;
+    line-height: 1em;
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 0.4em;
+}
+
+.btn-light {
+    color: #010101;
+    background-color: #fff;
+}
+
+.btn-primary {
+    color: #010101;
+    background-color: #c0e3e7;
+}
+
+.btn-lg {
+    font-size: 15px;
+    padding: 12px 35px;
+}
+
+.btn-sm {
+    font-size: 13px;
+    padding: 6px 20px;
+}
+
+.btn-thin {
+    font-weight: 400;
+}
+
+.btn-upper {
+    text-transform: uppercase;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn.disabled,
+.btn[disabled] {
+    cursor: not-allowed;
+    opacity: .65;
+}
+
+.btn.disabled:hover,
+.btn[disabled]:hover {
+    box-shadow: none;
+}
+
+.btn-icon {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.btn-icon .ace-icon {
+    font-size: 35px;
+    line-height: 56px;
+    margin: 0;
+}
+
+.btn-shade {
+    box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-shade:hover {
+    box-shadow: -1px 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.btn-group {
+    margin: 0 -5px;
+    display: block;
+}
+
+.btn-group .btn {
+    margin: 5px;
+}
+
+.widget ul li, .widget ol li {
+    border-bottom: 1px;
+}
+
+/* Post Categories */
+.widget_categories li {
+    padding: 15px 0;
+    color: #9a9a9a;
+}
+
+.widget_categories li a {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+mark,
+.bg-primary,
+.btn-primary,
+.bg-primary.text-dropcup-sq,
+.raiting-circle .fill {
+    background-color: #c0e3e7;
+}
+
+/**
+ * Theme Font Families
+ */
+body {
+    font-family: "Quicksand", sans-serif;
+}
+
+#ace-card {
+    box-shadow: -4px 7px 15px 1px rgba(118, 95, 91, 0.34);
+}
+
+#ace-card h1 {
+    font-size: 26px;
+    text-transform: uppercase;
+    margin-top: 33px;
+    margin-bottom: 11px;
+}
+
+.ace-card-inner {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.ace-card-footer {
+    padding: 40px 35px;
+}
+
+.ace-card-footer .btn {
+    font-size: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/**
+ * Sidebar
+ */
+#ace-sidebar {
+    top: 0;
+    right: 0;
+    width: 85%;
+    max-width: 320px;
+    height: 100%;
+    z-index: 10000;
+    position: fixed;
+    background-color: #1b6d85;
+    padding: 13px 0;
+    -webkit-transform: translate(400px, 0);
+    -ms-transform: translate(400px, 0);
+    transform: translate(400px, 0);
+    transition: -webkit-transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, -webkit-transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    box-shadow: rgba(0, 0, 0, 0.156863) 0px 3px 10px, rgba(0, 0, 0, 0.227451) 0px 3px 10px;
+}
+
+.ace-sidebar-opened #ace-sidebar {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+#ace-sidebar .ace-card {
+    box-shadow: none;
+    margin-bottom: 20px;
+}
+
+#ace-sidebar-inner {
+    height: 100%;
+    padding: 0 13px;
+    overflow: auto;
+}
+
+#ace-sidebar-btn {
+    margin-left: 1230px;
+    margin-top: 5px;
+}
+
+#ace-sidebar-close {
+    top: 6px;
+    left: -42px;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+}
+
+#ace-sidebar-close .ace-icon {
+    font-size: 15px;
+    line-height: 35px;
+    margin-left: 1px;
+    margin-top: -1px;
+}
+
+@media (min-width: 1430px) {
+    .ace-sidebar-on #ace-sidebar-btn {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    .ace-sidebar-on .ace-head-boxed.ace-logo-in #ace-head-col3 {
+        width: 0 !important;
+    }
+}
+
+@media (max-width: 1099px) {
+    .ace-sidebar-on .ace-head-full #ace-head-col3,
+    .ace-sidebar-on .ace-head-boxed.ace-logo-out #ace-head-col3 {
+        width: 60px !important;
+    }
+}

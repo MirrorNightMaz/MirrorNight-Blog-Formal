@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<!--[if IE 8 ]>
+<html class="no-js oldie ie8">
+<![endif]-->
+<!--[if IE 9 ]>
+<html class="no-js oldie ie9">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js">
+<!--<![endif]-->
+ <head>
+  <meta charset="utf-8" />
+  <title>400 Error</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/web_logo.ico' %}" />
+  <meta name="description" content="" />
+  <meta name="author" content="" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/main-ee.css' %}" />
+  <script>
+      function MobileMsg()
+      {
+          var userAgentInfo = navigator.userAgent;
+          var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+          for (var v = 0; v < Agents.length; v++)
+          {
+              if (userAgentInfo.indexOf(Agents[v]) > 0)
+              {
+                  window.location.href="{% url 'blog:mobilemsg' %}";
+                  break;
+              }
+          }
+      }
+      MobileMsg()
+  </script>
+ </head>
+ <body>
+  <header class="main-header">
+   <div class="row">
+    <div class="logo">
+     <a href="{% url 'blog:index' %}"></a>
+    </div>
+   </div>
+  </header>
+  <main id="main-404-content" class="main-content-particle-js">
+   <div class="content-wrap">
+    <div class="shadow-overlay"></div>
+    <div class="main-content">
+     <div class="row">
+      <div class="col-twelve">
+       <h1 class="kern-this">400 Error.</h1>
+       <p>您的请求存在语法错误！</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+  <script src="{% static 'js/plugins.js' %}"></script>
+  <script src="{% static 'js/main-ee.js' %}"></script>
+ </body>
+</html>
