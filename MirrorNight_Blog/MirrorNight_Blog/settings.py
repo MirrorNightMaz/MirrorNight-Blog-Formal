@@ -153,9 +153,10 @@ AUTHENTICATION_BACKENDS = ['user.views.MyBackend']
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.sina.com'
-EMAIL_PORT = 25
+EMAIL_PORT = 465
 EMAIL_HOST_USER = 'mirrornight_ma@sina.com'
 EMAIL_HOST_PASSWORD = 'a9811999'
+EMAIL_USE_SSL = True
 
 CAPTCHA_IMAGE_SIZE = (100, 50)
 CAPTCHA_FONT_SIZE = 30
