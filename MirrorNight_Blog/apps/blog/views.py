@@ -94,7 +94,7 @@ class ArticleList(View):
             category = bm.Categories.objects.filter(id=id)
             if category:
                 title = category[0].title
-                articles = category[0].articles_set.all().order_by('-add_time')
+                articles = category[0].articles_set.all().order_by('add_time')
                 page_id = request.GET.get('page', 1)
                 p = Paginator(articles, 10, request=request)
                 articles_page = p.page(page_id)
@@ -104,7 +104,7 @@ class ArticleList(View):
             archive = bm.Archives.objects.filter(id=id)
             if archive:
                 title = archive[0].title
-                articles = archive[0].articles_set.all().order_by('-add_time')
+                articles = archive[0].articles_set.all().order_by('add_time')
                 page_id = request.GET.get('page', 1)
                 p = Paginator(articles, 10, request=request)
                 articles_page = p.page(page_id)
@@ -118,15 +118,15 @@ class ArticleList(View):
         if type == 'category':
             category = bm.Categories.objects.filter(id=id)
             title = category[0].title
-            articles = category[0].articles_set.all().order_by('-add_time')
+            articles = category[0].articles_set.all().order_by('add_time')
         else:
             archive = bm.Archives.objects.filter(id=id)
             title = archive[0].title
-            articles = archive[0].articles_set.all().order_by('-add_time')
+            articles = archive[0].articles_set.all().order_by('add_time')
         searchform = SearchForm(request.POST)
         searchform.is_valid()
         key_words = searchform.cleaned_data['key_words']
-        articles = articles.filter(title__icontains=key_words).order_by('-add_time')
+        articles = articles.filter(title__icontains=key_words).order_by('add_time')
         page_id = request.GET.get('page', 1)
         p = Paginator(articles, 10, request=request)
         articles_page = p.page(page_id)
