@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcc138bd-7914-4992-8ff4-145ca9832daa" name="默认" comment="">
-      <change beforePath="$PROJECT_DIR$/MirrorNight_Blog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MirrorNight_Blog/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MirrorNight_Blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MirrorNight_Blog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/blog/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +76,6 @@
         <option value="$PROJECT_DIR$/../../参考资料/博客开发资料/博客模板成品(新侧边栏_分页)/photo.html" />
         <option value="$PROJECT_DIR$/common_static/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/apps/high/adminx.py" />
-        <option value="$PROJECT_DIR$/MirrorNight_Blog/urls.py" />
         <option value="$PROJECT_DIR$/apps/blog/forms.py" />
         <option value="$PROJECT_DIR$/extra_apps/ckeditor/static/ckeditor/ckeditor/config.js" />
         <option value="$PROJECT_DIR$/apps/blog/urls.py" />
@@ -113,9 +113,10 @@
         <option value="$PROJECT_DIR$/templates/register.html" />
         <option value="$PROJECT_DIR$/apps/user/models.py" />
         <option value="$PROJECT_DIR$/apps/user/views.py" />
-        <option value="$PROJECT_DIR$/apps/blog/views.py" />
         <option value="$PROJECT_DIR$/templates/mobilemsg.html" />
         <option value="$PROJECT_DIR$/MirrorNight_Blog/settings.py" />
+        <option value="$PROJECT_DIR$/MirrorNight_Blog/urls.py" />
+        <option value="$PROJECT_DIR$/apps/blog/views.py" />
       </list>
     </option>
   </component>
@@ -142,6 +143,11 @@
             <path>
               <item name="MirrorNight_Blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="MirrorNight_Blog" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MirrorNight_Blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MirrorNight_Blog" type="462c0819:PsiDirectoryNode" />
               <item name="MirrorNight_Blog" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -152,7 +158,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../MirrorNight_Blog/MirrorNight_Blog" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -302,16 +308,17 @@
       <workItem from="1554019637944" duration="16000" />
       <workItem from="1554119862110" duration="32000" />
       <workItem from="1554197198963" duration="78000" />
+      <workItem from="1554204619545" duration="59000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="279888000" />
+    <option name="totallyTimeSpent" value="279947000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49679488" visible="true" weight="0.17761394" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49679488" visible="true" weight="0.17962466" />
       <window_info id="Structure" order="1" sideWeight="0.5032051" side_tool="true" weight="0.13270777" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -455,13 +462,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
           <caret line="172" column="7" selection-start-line="172" selection-start-column="7" selection-end-line="172" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MirrorNight_Blog/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -664,16 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blog/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="128" column="73" selection-start-line="128" selection-start-column="73" selection-end-line="128" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/mobilemsg.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
@@ -687,6 +677,26 @@
           <caret line="140" column="17" lean-forward="true" selection-start-line="140" selection-start-column="17" selection-end-line="140" selection-end-column="17" />
           <folding>
             <element signature="e#315#324#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/blog/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MirrorNight_Blog/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding>
+            <element signature="e#640#653#0" expanded="true" />
           </folding>
         </state>
       </provider>

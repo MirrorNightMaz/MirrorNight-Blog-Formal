@@ -18,12 +18,6 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-# blog应用的自定义错误视图
-handler400 = 'blog.views.my_custom_bad_request_view'
-handler403 = 'blog.views.my_custom_permission_denied_view'
-handler404 = 'blog.views.my_custom_page_not_found_view'
-handler500 = 'blog.views.my_custom_error_view'
-
 urlpatterns = [
     path('xadmin/op/MirrorNight/', xadmin.site.urls),
     path('captcha/', include('captcha.urls')),

@@ -10,22 +10,6 @@ from pure_pagination import Paginator, EmptyPage
 
 # Create your views here.
 
-# 自定义错误视图
-def my_custom_bad_request_view(request):
-    return render(request, '400.html')
-
-
-def my_custom_permission_denied_view(request):
-    return render(request, '403.html')
-
-
-def my_custom_page_not_found_view(request):
-    return render(request, '404.html')
-
-
-def my_custom_error_view(request):
-    return render(request, '500.html')
-
 
 # about.html业务逻辑
 class About(View):
